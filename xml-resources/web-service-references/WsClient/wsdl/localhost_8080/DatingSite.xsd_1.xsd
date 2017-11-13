@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://webservice/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice/">
+
+<xs:element name="DatingSiteFault" type="tns:DatingSiteWebServiceException"></xs:element>
+
+<xs:element name="getDatingSiteName" type="tns:getDatingSiteName"></xs:element>
+
+<xs:element name="getDatingSiteNameResponse" type="tns:getDatingSiteNameResponse"></xs:element>
+
+<xs:element name="getMessagesReceived" type="tns:getMessagesReceived"></xs:element>
+
+<xs:element name="getMessagesReceivedResponse" type="tns:getMessagesReceivedResponse"></xs:element>
+
+<xs:element name="getMessagesSent" type="tns:getMessagesSent"></xs:element>
+
+<xs:element name="getMessagesSentResponse" type="tns:getMessagesSentResponse"></xs:element>
+
+<xs:element name="getParticipantInfo" type="tns:getParticipantInfo"></xs:element>
+
+<xs:element name="getParticipantInfoResponse" type="tns:getParticipantInfoResponse"></xs:element>
+
+<xs:element name="getPreference" type="tns:getPreference"></xs:element>
+
+<xs:element name="getPreferenceResponse" type="tns:getPreferenceResponse"></xs:element>
+
+<xs:element name="getProfile" type="tns:getProfile"></xs:element>
+
+<xs:element name="getProfileResponse" type="tns:getProfileResponse"></xs:element>
+
+<xs:element name="login" type="tns:login"></xs:element>
+
+<xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
+
+<xs:element name="logout" type="tns:logout"></xs:element>
+
+<xs:element name="logoutResponse" type="tns:logoutResponse"></xs:element>
+
+<xs:element name="registerParticipant" type="tns:registerParticipant"></xs:element>
+
+<xs:element name="registerParticipantResponse" type="tns:registerParticipantResponse"></xs:element>
+
+<xs:element name="requestMatchingProfiles" type="tns:requestMatchingProfiles"></xs:element>
+
+<xs:element name="requestMatchingProfilesResponse" type="tns:requestMatchingProfilesResponse"></xs:element>
+
+<xs:element name="sendMessage" type="tns:sendMessage"></xs:element>
+
+<xs:element name="sendMessageResponse" type="tns:sendMessageResponse"></xs:element>
+
+<xs:element name="setPreference" type="tns:setPreference"></xs:element>
+
+<xs:element name="setPreferenceResponse" type="tns:setPreferenceResponse"></xs:element>
+
+<xs:element name="setProfile" type="tns:setProfile"></xs:element>
+
+<xs:element name="setProfileResponse" type="tns:setProfileResponse"></xs:element>
+
+<xs:element name="unregisterParticipant" type="tns:unregisterParticipant"></xs:element>
+
+<xs:element name="unregisterParticipantResponse" type="tns:unregisterParticipantResponse"></xs:element>
+
+<xs:complexType name="requestMatchingProfiles">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="requestMatchingProfilesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:profile" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="profile">
+<xs:sequence>
+<xs:element name="age" type="xs:int"></xs:element>
+<xs:element name="colorEyes" type="tns:colorEyes" minOccurs="0"></xs:element>
+<xs:element name="colorHair" type="tns:colorHair" minOccurs="0"></xs:element>
+<xs:element name="datingSiteName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="gender" type="tns:gender" minOccurs="0"></xs:element>
+<xs:element name="hobbies" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="length" type="xs:int"></xs:element>
+<xs:element name="profileId" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DatingSiteWebServiceException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPreference">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="tns:gender" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:int"></xs:element>
+<xs:element name="arg3" type="xs:int"></xs:element>
+<xs:element name="arg4" type="xs:int"></xs:element>
+<xs:element name="arg5" type="xs:int"></xs:element>
+<xs:element name="arg6" type="tns:colorHair" minOccurs="0"></xs:element>
+<xs:element name="arg7" type="tns:colorEyes" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPreferenceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:preference" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="preference">
+<xs:sequence>
+<xs:element name="colorEyes" type="tns:colorEyes" minOccurs="0"></xs:element>
+<xs:element name="colorHair" type="tns:colorHair" minOccurs="0"></xs:element>
+<xs:element name="gender" type="tns:gender" minOccurs="0"></xs:element>
+<xs:element name="maxAge" type="xs:int"></xs:element>
+<xs:element name="maxLength" type="xs:int"></xs:element>
+<xs:element name="minAge" type="xs:int"></xs:element>
+<xs:element name="minLength" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logout">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logoutResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesReceived">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesReceivedResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:message" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="message">
+<xs:sequence>
+<xs:element name="content" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="receiver" type="tns:profile" minOccurs="0"></xs:element>
+<xs:element name="sender" type="tns:profile" minOccurs="0"></xs:element>
+<xs:element name="timeStamp" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDatingSiteName">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDatingSiteNameResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setProfile">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:int"></xs:element>
+<xs:element name="arg2" type="tns:colorHair" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="tns:colorEyes" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setProfileResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:profile" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getParticipantInfo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getParticipantInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:participantInfo" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="participantInfo">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="bankaccount" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="birthDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="gender" type="tns:gender" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="place" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="postalcode" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProfile">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProfileResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:profile" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendMessage">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="tns:profile" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendMessageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerParticipant">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg5" type="tns:gender" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg7" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg8" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerParticipantResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesSent">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMessagesSentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:message" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPreference">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPreferenceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:preference" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unregisterParticipant">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unregisterParticipantResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="colorEyes">
+<xs:restriction base="xs:string">
+<xs:enumeration value="BLAUW"></xs:enumeration>
+<xs:enumeration value="BRUIN"></xs:enumeration>
+<xs:enumeration value="GROEN"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="colorHair">
+<xs:restriction base="xs:string">
+<xs:enumeration value="BLOND"></xs:enumeration>
+<xs:enumeration value="BRUIN"></xs:enumeration>
+<xs:enumeration value="ZWART"></xs:enumeration>
+<xs:enumeration value="ROOD"></xs:enumeration>
+<xs:enumeration value="GRIJS"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="gender">
+<xs:restriction base="xs:string">
+<xs:enumeration value="MALE"></xs:enumeration>
+<xs:enumeration value="FEMALE"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
