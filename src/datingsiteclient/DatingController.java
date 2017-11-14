@@ -49,6 +49,7 @@ public class DatingController {
     public boolean Login(String email, String password){
         try{
         sessionKey = hm.login(email, password);
+        System.out.println(sessionKey);
         }
         catch(DatingSiteWebServiceException_Exception e){
             System.out.println(e);
