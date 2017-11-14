@@ -18,7 +18,7 @@ public class DatingController {
     
     static HttpManager hm = new HttpManager();
     
-    private final String siteName;
+    private String siteName;
     private List<Message> messagesReceived;
     private List<Message> messagesSend;
     private Preference myPreference;
@@ -29,7 +29,14 @@ public class DatingController {
     
     public DatingController() throws DatingSiteWebServiceException_Exception{
                   
-        siteName = hm.getDatingSiteName();
+        try{            
+            siteName = hm.getDatingSiteName();
+        }
+        catch(DatingSiteWebServiceException_Exception e)
+        {
+            siteName = "";
+            System.out.println("Could not connect to DatingSiteServer");
+        }
         messagesReceived = new ArrayList();
         messagesSend = new ArrayList();   
         myPreference = new Preference();
