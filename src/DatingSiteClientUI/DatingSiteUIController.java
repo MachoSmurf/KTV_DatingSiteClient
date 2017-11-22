@@ -7,61 +7,47 @@ package DatingSiteClientUI;
 
 import datingsiteclient.DatingController;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
  *
  * @author MS-Laptop
  */
-public class DatingSiteUIController implements Initializable {
-
-    private DatingController dc;
-    private Stage uIStage;
+public abstract class DatingSiteUIController {
     
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Controller initiated");
-        // TODO
-    }        
+    protected DatingController dc;    
     
-    public void setDatingController(DatingController dc)    {
+    public void setDatingController(DatingController dc){
         this.dc = dc;
     }
     
-    public void setUIStage(Stage uIStage){
-        this.uIStage = uIStage;
-    }
-
-    @FXML
-    private void onLoginClick(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void onRegisterClick(ActionEvent event) throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DatingSiteUIRegisterScreen.fxml"));     
-        Parent root = (Parent)fxmlLoader.load();
-        uIStage.setScene(new Scene(root));*/
-        
-        Parent homepage_parent = FXMLLoader.load(getClass().getResource("/DatingSiteClientUI/DatingSiteUIRegisterScreen.fxml"));
-        Scene homepage_scene = new Scene(homepage_parent);
+    protected void changeScreen(String fxmlPath, ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));     
+                
+        Parent root = (Parent)fxmlLoader.load();   
+                
+        Scene homepage_scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+        DatingSiteUIController controller = (DatingSiteUIController)fxmlLoader.getController();
+        controller.setDatingController(dc);
+        
         app_stage.hide();
         app_stage.setScene(homepage_scene);
         app_stage.show();
     }
     
+    protected void showWarning(String title, String text){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(text);
+        alert.show();
+    }
 }

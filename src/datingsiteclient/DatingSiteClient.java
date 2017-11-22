@@ -5,7 +5,7 @@
  */
 package datingsiteclient;
 
-import DatingSiteClientUI.DatingSiteUIController;
+import DatingSiteClientUI.DatingSiteUILoginScreenController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import webservice.DatingSiteWebServiceException_Exception;
 
 /**
  *
@@ -23,20 +24,17 @@ import javafx.stage.Stage;
  */
 public class DatingSiteClient extends Application {
     
-    private DatingController datingController;
+    private static DatingController datingController;
     
     @Override
     public void start(Stage primaryStage) throws Exception{
         
-        try{
-            datingController = new DatingController();
-        
+        try{           
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml"));     
 
         Parent root = (Parent)fxmlLoader.load();          
-        DatingSiteUIController controller = (DatingSiteUIController)fxmlLoader.getController();
+        DatingSiteUILoginScreenController controller = (DatingSiteUILoginScreenController)fxmlLoader.getController();
         controller.setDatingController(datingController);
-        controller.setUIStage(primaryStage);
                 
         Scene scene = new Scene(root); 
 
@@ -52,8 +50,10 @@ public class DatingSiteClient extends Application {
 
     /**
      * @param args the command line arguments
+     * @throws webservice.DatingSiteWebServiceException_Exception
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DatingSiteWebServiceException_Exception {
+        datingController = new DatingController();
         launch(args);
     }
     

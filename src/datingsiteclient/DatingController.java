@@ -44,11 +44,18 @@ public class DatingController {
         myProfile = new Profile();
         myMatches = new ArrayList();
         
+        System.out.println("DatingController initiated");
+        
     }
     
     public boolean Login(String email, String password){
         try{
         sessionKey = hm.login(email, password);
+        if (sessionKey.length() != 10)
+        {
+            System.out.println("Invalid session key");
+            return false;
+        }
         System.out.println(sessionKey);
         }
         catch(DatingSiteWebServiceException_Exception e){

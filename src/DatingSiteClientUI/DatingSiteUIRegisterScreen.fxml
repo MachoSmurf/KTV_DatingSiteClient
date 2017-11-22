@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.AmbientLight?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -13,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIRegisterScreenController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -28,11 +26,14 @@
             <TextField layoutX="357.0" layoutY="83.0" promptText="Postcode" />
             <TextField layoutX="357.0" layoutY="123.0" promptText="Woonplaats" />
             <TextField layoutX="357.0" layoutY="165.0" promptText="Bankrekeningnummer" />
-            <Button layoutX="278.0" layoutY="322.0" mnemonicParsing="false" text="Voltooi registratie" />
+            <Button layoutX="278.0" layoutY="322.0" mnemonicParsing="false" onAction="#onSubmitRegistration" text="Voltooi registratie" />
       </children>
          
     </AnchorPane>
-      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="279.0" layoutY="8.0" mnemonicParsing="false" onAction="#onCancelRegistration" prefHeight="31.0" prefWidth="139.0" text="Anuleren" />
+         </children></Pane>
       
       <AmbientLight color="CHARTREUSE" lightOn="true" />
   </children>
