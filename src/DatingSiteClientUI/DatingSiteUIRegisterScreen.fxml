@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIRegisterScreenController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField layoutX="114.0" layoutY="49.0" promptText="Gebruikersnaam" />
+            <TextField layoutX="357.0" layoutY="49.0" promptText="Adres" />
+            <PasswordField accessibleText="Wachtwoord" layoutX="113.0" layoutY="83.0" promptText="Wachtwoord" />
+            <TextField layoutX="113.0" layoutY="123.0" promptText="Email" />
+            <DatePicker layoutX="113.0" layoutY="165.0" promptText="Geboortedatum" />
+            <CheckBox layoutX="114.0" layoutY="224.0" mnemonicParsing="false" text="Man" />
+            <CheckBox layoutX="114.0" layoutY="250.0" mnemonicParsing="false" text="Vrouw" />
+            <Label layoutX="113.0" layoutY="284.0" text="Vul uw gegevens in om een account aan te maken" />
+            <TextField layoutX="357.0" layoutY="83.0" promptText="Postcode" />
+            <TextField layoutX="357.0" layoutY="123.0" promptText="Woonplaats" />
+            <TextField layoutX="357.0" layoutY="165.0" promptText="Bankrekeningnummer" />
+            <Button layoutX="278.0" layoutY="322.0" mnemonicParsing="false" text="Voltooi registratie" />
+      </children>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+    </AnchorPane>
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <View />
+      <AmbientLight color="CHARTREUSE" lightOn="true" />
+  </children>
+</VBox>

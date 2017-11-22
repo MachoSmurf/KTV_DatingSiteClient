@@ -40,8 +40,8 @@ public class DatingSiteClient extends Application {
         
         Scene scene = new Scene(root, 600, 400);
         
-        DatingSiteUILoginScreenController c = (DatingSiteUILoginScreenController)scene.getUserData();
-        c.setDatingController(datingController);
+        //DatingSiteUILoginScreenController c = (DatingSiteUILoginScreenController)scene.getUserData();
+        //c.setDatingController(datingController);
         
         primaryStage.setTitle("DatingSite Login");
         primaryStage.setScene(scene);
