@@ -5,7 +5,7 @@
  */
 package datingsiteclient;
 
-import DatingSiteClientUI.DatingSiteUILoginScreenController;
+import DatingSiteClientUI.DatingSiteUIController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,24 +28,26 @@ public class DatingSiteClient extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         
-        datingController = new DatingController();
+        try{
+            datingController = new DatingController();
         
-        Parent root = null;
-        try{            
-            root = FXMLLoader.load(getClass().getResource("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml"));     
+
+        Parent root = (Parent)fxmlLoader.load();          
+        DatingSiteUIController controller = (DatingSiteUIController)fxmlLoader.getController();
+        controller.setDatingController(datingController);
+        controller.setUIStage(primaryStage);
+                
+        Scene scene = new Scene(root); 
+
+        primaryStage.setScene(scene);    
+
+        primaryStage.show();     
+        
         }
-        catch(IOException e){
+        catch(Exception e){
             System.out.println(e);
         }       
-        
-        Scene scene = new Scene(root, 600, 400);
-        
-        //DatingSiteUILoginScreenController c = (DatingSiteUILoginScreenController)scene.getUserData();
-        //c.setDatingController(datingController);
-        
-        primaryStage.setTitle("DatingSite Login");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     /**

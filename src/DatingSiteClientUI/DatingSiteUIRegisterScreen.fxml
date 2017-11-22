@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIRegisterScreenController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -30,12 +30,10 @@
             <TextField layoutX="357.0" layoutY="165.0" promptText="Bankrekeningnummer" />
             <Button layoutX="278.0" layoutY="322.0" mnemonicParsing="false" text="Voltooi registratie" />
       </children>
-         <cursor>
-            <Cursor fx:constant="NONE" />
-         </cursor>
+         
     </AnchorPane>
       <Pane prefHeight="200.0" prefWidth="200.0" />
-      <View />
+      
       <AmbientLight color="CHARTREUSE" lightOn="true" />
   </children>
 </VBox>
