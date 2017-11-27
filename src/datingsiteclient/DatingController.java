@@ -186,7 +186,7 @@ public class DatingController {
     }
     
     public boolean SetMyPreferences(Gender gender, int minAge, int maxAge, int minLength, int maxLength, ColorHair hairColor, ColorEyes eyeColor){
-        if ((gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minAge>100)  && (maxAge<250)){
+        if ((gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)){
            try{
                this.myPreference = hm.setPreference(sessionKey, gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
                return true;
