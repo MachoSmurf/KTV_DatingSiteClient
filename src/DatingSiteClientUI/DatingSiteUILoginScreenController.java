@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import webservice.DatingSiteWebServiceException_Exception;
 
 /**
  * FXML Controller class
@@ -47,7 +48,7 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
         }
         else
         {
-            boolean loginResult = dc.Login(tbEmail.getText(), tbPassword.getText());
+            boolean loginResult = dc.Login(tbEmail.getText(), tbPassword.getText());   
             if(loginResult == true)
             {
                 showWarning("Login complete", "Login succesfull");
@@ -55,7 +56,7 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
             else
             {
                 showWarning("Inlogfout", "De inloggegens zijn niet juist. Probeer het opnieuw.");
-            }
+            }       
         }        
     }
 

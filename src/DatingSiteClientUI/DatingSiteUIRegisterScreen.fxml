@@ -17,20 +17,21 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <TextField fx:id="tbRegisterName" layoutX="114.0" layoutY="49.0" promptText="Naam" />
-            <TextField fx:id="tbRegisterAdress" layoutX="357.0" layoutY="49.0" promptText="Adres" />
             <PasswordField fx:id="tbRegisterPassword" accessibleText="Wachtwoord" layoutX="113.0" layoutY="83.0" promptText="Wachtwoord" />
             <TextField fx:id="tbRegisterEmail" layoutX="113.0" layoutY="123.0" promptText="Email" />
             <DatePicker fx:id="dpRegisterBirthDate" layoutX="113.0" layoutY="165.0" promptText="Geboortedatum" />
+            <TextField fx:id="tbRegisterAdress" layoutX="357.0" layoutY="49.0" promptText="Adres" />
             <Label layoutX="113.0" layoutY="284.0" text="Vul uw gegevens in om een account aan te maken" />
             <TextField fx:id="tbRegisterPostalCode" layoutX="357.0" layoutY="83.0" promptText="Postcode" />
             <TextField fx:id="tbRegisterPlace" layoutX="357.0" layoutY="123.0" promptText="Woonplaats" />
             <TextField fx:id="tbRegisterBankAccount" layoutX="357.0" layoutY="165.0" promptText="Bankrekeningnummer" />
-            <Button fx:id="btnRegisterSubmit" layoutX="278.0" layoutY="322.0" mnemonicParsing="false" onAction="#onSubmitRegistration" text="Voltooi registratie" />
             <RadioButton fx:id="rbRegisterGenderMale" layoutX="113.0" layoutY="222.0" mnemonicParsing="false" selected="true" text="Man">
                <toggleGroup>
                   <ToggleGroup fx:id="tgRegisterGender" />
-               </toggleGroup></RadioButton>
+               </toggleGroup>
+            </RadioButton>
             <RadioButton fx:id="rbRegisterGenderFemale" layoutX="113.0" layoutY="251.0" mnemonicParsing="false" text="Vrouw" toggleGroup="$tgRegisterGender" />
+            <Button fx:id="btnRegisterSubmit" layoutX="278.0" layoutY="322.0" mnemonicParsing="false" onAction="#onSubmitRegistration" text="Voltooi registratie" />
       </children>
          
     </AnchorPane>

@@ -9,9 +9,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUILoginScreenController">
    <children>
-      <Button id="btnLogin" layoutX="253.0" layoutY="291.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="31.0" prefWidth="87.0" text="Login" />
-      <PasswordField id="tbPassword" fx:id="tbPassword" layoutX="207.0" layoutY="236.0" promptText="Wachtwoord" />
       <TextField id="tbEmail" fx:id="tbEmail" layoutX="207.0" layoutY="191.0" promptText="Email" />
+      <PasswordField id="tbPassword" fx:id="tbPassword" layoutX="207.0" layoutY="236.0" promptText="Wachtwoord" />
+      <Button id="btnLogin" layoutX="253.0" layoutY="291.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="31.0" prefWidth="87.0" text="Login" />
       <Button id="btnRegistreer" layoutX="253.0" layoutY="340.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registreer" />
       <Label id="lblSiteName" fx:id="lblLoginDatingSiteName" alignment="CENTER" layoutX="246.0" layoutY="50.0" text="Dating" textAlignment="CENTER">
          <font>
