@@ -99,6 +99,7 @@ public class DatingController {
         if (sessionKey.length() == 10){
             try{
                 this.myProfile = hm.getProfile(sessionKey);
+                //System.out.println(myProfile.getColorHair().toString());
                 return this.myProfile;
             }
             catch(DatingSiteWebServiceException_Exception e){
@@ -106,6 +107,7 @@ public class DatingController {
                 return null;
             }
         }
+        System.out.println("Invalid session key");
         return null;
     }
     

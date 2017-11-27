@@ -49,7 +49,8 @@ public class DatingSiteUISearchScreenController extends DatingSiteUIController i
     
     @FXML
     private void onMyProfile(ActionEvent event) throws IOException{
-        changeScreen("/DatingSiteClientUI/DatingSiteUIProfileScreen.fxml", event);
+        DatingSiteUIProfileScreenController c = (DatingSiteUIProfileScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIProfileScreen.fxml", event);
+        c.loadProfile();
     }
     
 }

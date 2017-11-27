@@ -11,6 +11,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import webservice.Gender;
+import webservice.Profile;
+
 
 /**
  * FXML Controller class
@@ -19,6 +23,14 @@ import javafx.fxml.Initializable;
  */
 public class DatingSiteUIProfileScreenController extends DatingSiteUIController implements Initializable {
 
+    @FXML private RadioButton rbProfileMale;
+    @FXML private RadioButton rbProfileFemale;
+    @FXML private DatePicker dpProfileBirthDate;
+    @FXML private ComboBox cbProfileHairColor;
+    @FXML private ComboBox cbProfileEyesColor;
+    @FXML private TextArea taProfileDescription;
+    @FXML private ListView lvProfileHobbies;    
+    
     /**
      * Initializes the controller class.
      */
@@ -30,5 +42,20 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
     @FXML
     private void onCancel(ActionEvent event) throws IOException{
         changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);
+    }
+    
+    @FXML 
+    public void loadProfile(){
+        Profile myProfile = dc.GetMyProfile();
+        if (myProfile.getGender() == Gender.MALE)
+        {
+            rbProfileMale.setSelected(true);
+            rbProfileFemale.setSelected(false);
+        }
+        else
+        {
+            rbProfileFemale.setSelected(true);
+            rbProfileMale.setSelected(false);
+        }        
     }
 }
