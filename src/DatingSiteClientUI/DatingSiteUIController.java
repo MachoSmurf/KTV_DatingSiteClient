@@ -7,6 +7,11 @@ package DatingSiteClientUI;
 
 import datingsiteclient.DatingController;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +19,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -42,9 +50,33 @@ public abstract class DatingSiteUIController {
         app_stage.setScene(homepage_scene);
         app_stage.show();
     }
+        
+    protected XMLGregorianCalendar generateDate(String dateString){
+        try{
+            DateFormat format = new SimpleDateFormat("Y-M-d");
+            Date d = format.parse(dateString);
+            GregorianCalendar gregory = new GregorianCalendar();
+            gregory.setTime(d);
+            XMLGregorianCalendar calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
+            return calendar;
+        }
+        catch(ParseException | DatatypeConfigurationException e)
+        {
+            System.out.println("Failed to generate date: " + e.getMessage());
+        }
+        return null;
+    }
     
     protected void showWarning(String title, String text){
         Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(text);
+        alert.show();
+    }
+    
+    protected void showSucces(String title, String text){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(text);

@@ -35,6 +35,7 @@ public class DatingSiteClient extends Application {
         Parent root = (Parent)fxmlLoader.load();          
         DatingSiteUILoginScreenController controller = (DatingSiteUILoginScreenController)fxmlLoader.getController();
         controller.setDatingController(datingController);
+        controller.setSiteName(datingController.GetSiteName());
                 
         Scene scene = new Scene(root); 
 

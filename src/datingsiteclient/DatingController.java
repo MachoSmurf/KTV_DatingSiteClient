@@ -6,7 +6,9 @@
 package datingsiteclient;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
+import javax.xml.datatype.XMLGregorianCalendar;
 import webservice.DatingSiteWebServiceException_Exception;
 import webservice.*;
 
@@ -198,6 +200,10 @@ public class DatingController {
        
     public boolean SendMessage(){
         return false;
+    }
+    
+    public boolean registerParticipant(String name, String address, String postalCode, String place, XMLGregorianCalendar birthDate, Gender gender, String bankAccount, String email, String password) throws DatingSiteWebServiceException_Exception{
+        return hm.registerParticipant(name, address, postalCode, place, birthDate, gender, bankAccount, email, password);
     }
     
 }

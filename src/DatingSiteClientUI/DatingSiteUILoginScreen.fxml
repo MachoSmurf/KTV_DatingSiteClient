@@ -13,7 +13,7 @@
       <PasswordField id="tbPassword" fx:id="tbPassword" layoutX="207.0" layoutY="236.0" promptText="Wachtwoord" />
       <TextField id="tbEmail" fx:id="tbEmail" layoutX="207.0" layoutY="191.0" promptText="Email" />
       <Button id="btnRegistreer" layoutX="253.0" layoutY="340.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registreer" />
-      <Label id="lblSiteName" alignment="CENTER" layoutX="246.0" layoutY="50.0" text="Dating" textAlignment="CENTER">
+      <Label id="lblSiteName" fx:id="lblLoginDatingSiteName" alignment="CENTER" layoutX="246.0" layoutY="50.0" text="Dating" textAlignment="CENTER">
          <font>
             <Font size="37.0" />
          </font>

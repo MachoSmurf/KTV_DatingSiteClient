@@ -22,14 +22,19 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
     
     @FXML private TextField tbEmail;
     @FXML private PasswordField tbPassword;
+    @FXML private Label lblLoginDatingSiteName;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }        
     
+    public void setSiteName(String siteName){
+        lblLoginDatingSiteName.setText(siteName);
+    }
     
     @FXML
     private void onLoginClick(ActionEvent event) {
@@ -38,7 +43,7 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
         
         if ((email.equals("")) || (password.equals("")))
         {
-            showWarning("Inlogfout", "Niet alle vereist velden zijn ingevuld.");
+            showWarning("Inlogfout", "Niet alle vereiste velden zijn ingevuld.");
         }
         else
         {
