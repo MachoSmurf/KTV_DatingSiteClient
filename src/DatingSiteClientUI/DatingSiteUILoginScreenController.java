@@ -51,7 +51,13 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
             boolean loginResult = dc.Login(tbEmail.getText(), tbPassword.getText());   
             if(loginResult == true)
             {
-                showWarning("Login complete", "Login succesfull");
+                //showWarning("Login complete", "Login succesfull");
+                try{
+                    changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);                    
+                }
+                catch(IOException ioe){
+                    showWarning("Fout", "Het scherm kon niet worden geladen.");
+                }
             }
             else
             {

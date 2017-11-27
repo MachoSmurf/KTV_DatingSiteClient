@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUISearchScreenController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="474.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label layoutX="37.0" layoutY="26.0" text="Hieronder worden de matches weergegeven die op basis van uw voorkeuren zijn gevonden:" />
+            <Label layoutX="19.0" layoutY="14.0" text="Hieronder worden de matches weergegeven die op basis van uw voorkeuren zijn gevonden:" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="37.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="37.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="203.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="388.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="204.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="383.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnSearchMyProfile" layoutX="37.0" layoutY="411.0" mnemonicParsing="false" onAction="#onMyProfile" prefHeight="31.0" prefWidth="134.0" text="Mijn Profiel" />
+            <Button fx:id="btnSearchMyPreference" layoutX="37.0" layoutY="455.0" mnemonicParsing="false" onAction="#onMyPreferences" prefHeight="31.0" prefWidth="134.0" text="Mijn Voorkeuren" />
          </children>
     </AnchorPane>
   </children>
