@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -68,7 +67,14 @@ public class DatingSiteUIRegisterScreenController extends DatingSiteUIController
             
             if (registerResult){
                 this.showSucces("Registratie Succesvol", "De registratie is voltooid. U kunt inloggen met het email adres: " + email);
-                changeScreen("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml", event);
+                
+                if (dc.Login(email, password))
+                {                    
+                    //profile has not been filled out yet. Make sure the user does.
+                    DatingSiteUIProfileScreenController c = (DatingSiteUIProfileScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIProfileScreen.fxml", event);
+                    c.setInitalBirthDate(birthDate);
+                    c.setInitialGender(registerGender);                    
+                }                    
             }
             else
             {

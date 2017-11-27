@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
@@ -19,16 +21,23 @@
             <Label alignment="CENTER" layoutX="44.0" layoutY="171.0" text="Maximale lengte:" />
             <Label alignment="CENTER" layoutX="44.0" layoutY="205.0" text="Haarkleur:" />
             <Label alignment="CENTER" layoutX="45.0" layoutY="239.0" text="Kleur ogen:" />
-            <Button layoutX="38.0" layoutY="369.0" mnemonicParsing="false" onAction="#onCancel" text="Annuleren" />
-            <Button layoutX="530.0" layoutY="369.0" mnemonicParsing="false" text="Opslaan" />
-            <ComboBox layoutX="169.0" layoutY="51.0" prefHeight="25.0" prefWidth="60.0" promptText="50" />
-            <ComboBox layoutX="169.0" layoutY="91.0" prefHeight="25.0" prefWidth="60.0" promptText="75" />
-            <ComboBox layoutX="169.0" layoutY="130.0" prefHeight="25.0" prefWidth="71.0" promptText="150" />
-            <ComboBox layoutX="169.0" layoutY="167.0" prefHeight="25.0" prefWidth="71.0" promptText="190" />
-            <ComboBox layoutX="169.0" layoutY="201.0" prefHeight="25.0" prefWidth="89.0" promptText="Zwart" />
-            <ComboBox layoutX="168.0" layoutY="235.0" prefHeight="25.0" prefWidth="93.0" promptText="Blauw" />
-            <RadioButton layoutX="45.0" layoutY="277.0" mnemonicParsing="false" text="Man" />
-            <RadioButton layoutX="45.0" layoutY="301.0" mnemonicParsing="false" text="Vrouw" />
+            <Button fx:id="btnPreferencesCancel" layoutX="38.0" layoutY="369.0" mnemonicParsing="false" onAction="#onCancel" text="Annuleren" />
+            <Button fx:id="btnPreferencesSave" layoutX="530.0" layoutY="369.0" mnemonicParsing="false" onAction="#onPreferencesSave" text="Opslaan" />
+            <ComboBox fx:id="cbPreferencesColorHair" layoutX="169.0" layoutY="201.0" prefHeight="31.0" prefWidth="117.0" promptText="Zwart" />
+            <ComboBox fx:id="cbPreferencesColorEyes" layoutX="168.0" layoutY="235.0" prefHeight="31.0" prefWidth="117.0" promptText="Blauw" />
+            <RadioButton fx:id="rbPreferencesGenderMale" layoutX="45.0" layoutY="277.0" mnemonicParsing="false" text="Man">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tgPreferencesGender" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="rbPreferencesGenderFemale" layoutX="45.0" layoutY="301.0" mnemonicParsing="false" text="Vrouw" toggleGroup="$tgPreferencesGender" />
+            <TextField fx:id="tbPreferencesMinAge" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="50.0" prefHeight="31.0" prefWidth="68.0" promptText="40" />
+            <TextField fx:id="tbPreferencesMaxAge" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="90.0" prefHeight="31.0" prefWidth="68.0" promptText="45" />
+            <TextField fx:id="tbPreferencesMinLength" alignment="CENTER_RIGHT" layoutX="169.0" layoutY="129.0" prefHeight="31.0" prefWidth="68.0" promptText="160" />
+            <TextField fx:id="tbPreferencesMaxLength" alignment="CENTER_RIGHT" layoutX="169.0" layoutY="166.0" prefHeight="31.0" prefWidth="68.0" promptText="190" />
+            <Label layoutX="250.0" layoutY="55.0" text="jaar" />
+            <Label layoutX="250.0" layoutY="95.0" text="jaar" />
+            <Label layoutX="250.0" layoutY="134.0" text="cm" />
+            <Label layoutX="250.0" layoutY="171.0" text="cm" />
          </children>
     </AnchorPane>
       <WebView prefHeight="200.0" prefWidth="200.0" />

@@ -4,9 +4,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,31 +17,34 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button layoutX="538.0" layoutY="398.0" mnemonicParsing="false" text="Profiel opslaan" />
+            <Button layoutX="538.0" layoutY="398.0" mnemonicParsing="false" onAction="#onSaveProfile" text="Profiel opslaan" />
             <Label layoutX="326.0" layoutY="321.0" text="Mijn hobbies:" />
             <ImageView fitHeight="180.0" fitWidth="283.0" layoutX="326.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
             <Button disable="true" layoutX="538.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Foto kiezen" />
-            <ListView fx:id="lvProfileHobbies" layoutX="320.0" layoutY="354.0" prefHeight="119.0" prefWidth="200.0" />
-            <TextArea fx:id="taProfileDescription" layoutX="25.0" layoutY="273.0" prefHeight="200.0" prefWidth="283.0" promptText="Vul hier een omschrijving van uzelf in" />
+            <TextArea fx:id="taProfileDescription" layoutX="25.0" layoutY="354.0" prefHeight="119.0" prefWidth="283.0" promptText="Vul hier een omschrijving van uzelf in" />
             <Label layoutX="21.0" layoutY="33.0" text="Bekijk en pas uw profiel aan">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label layoutX="25.0" layoutY="103.0" text="Geslacht:" />
-            <Label layoutX="27.0" layoutY="147.0" text="Geboortedatum:" />
-            <Label layoutX="29.0" layoutY="193.0" text="Haarkleur:" />
+            <Label layoutX="25.0" layoutY="147.0" text="Geboortedatum:" />
+            <Label layoutX="21.0" layoutY="193.0" text="Haarkleur:" />
             <ComboBox fx:id="cbProfileHairColor" layoutX="143.0" layoutY="188.0" prefHeight="31.0" prefWidth="150.0" promptText="Zwart" />
             <Label layoutX="25.0" layoutY="240.0" text="Kleur ogen:" />
             <ComboBox fx:id="cbProfileEyesColor" layoutX="143.0" layoutY="235.0" prefWidth="150.0" promptText="Blauw" />
-            <Button layoutX="538.0" layoutY="442.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="31.0" prefWidth="95.0" text="Terug" />
-            <RadioButton fx:id="rbProfileMale" layoutX="143.0" layoutY="103.0" mnemonicParsing="false" text="Man">
+            <Button fx:id="btnProfileCancel" disable="true" layoutX="538.0" layoutY="442.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="31.0" prefWidth="95.0" text="Terug" />
+            <RadioButton fx:id="rbProfileMale" disable="true" layoutX="143.0" layoutY="103.0" mnemonicParsing="false" text="Man">
                <toggleGroup>
                   <ToggleGroup fx:id="tgProfileGender" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbProfileFemale" layoutX="221.0" layoutY="103.0" mnemonicParsing="false" text="Vrouw" toggleGroup="$tgProfileGender" />
-            <DatePicker fx:id="dpProfileBirthDate" layoutX="143.0" layoutY="142.0" />
+            <RadioButton fx:id="rbProfileFemale" disable="true" layoutX="221.0" layoutY="103.0" mnemonicParsing="false" text="Vrouw" toggleGroup="$tgProfileGender" />
+            <DatePicker fx:id="dpProfileBirthDate" disable="true" layoutX="143.0" layoutY="142.0" prefHeight="31.0" prefWidth="150.0" />
+            <Label layoutX="21.0" layoutY="289.0" text="Lengte:" />
+            <TextField fx:id="tfProfileLength" alignment="CENTER_RIGHT" layoutX="143.0" layoutY="284.0" prefHeight="31.0" prefWidth="102.0" promptText="170" />
+            <Label layoutX="256.0" layoutY="289.0" text="cm" />
+            <TextArea fx:id="taProfileHobbies" layoutX="325.0" layoutY="355.0" prefHeight="119.0" prefWidth="204.0" promptText="Vul hier uw hobbies in" />
          </children>
     </AnchorPane>
   </children>

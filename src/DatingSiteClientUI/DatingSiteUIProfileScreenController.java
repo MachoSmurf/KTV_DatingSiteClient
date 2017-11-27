@@ -7,11 +7,14 @@ package DatingSiteClientUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import webservice.ColorEyes;
+import webservice.ColorHair;
 import webservice.Gender;
 import webservice.Profile;
 
@@ -29,7 +32,9 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
     @FXML private ComboBox cbProfileHairColor;
     @FXML private ComboBox cbProfileEyesColor;
     @FXML private TextArea taProfileDescription;
-    @FXML private ListView lvProfileHobbies;    
+    @FXML private TextArea taProfileHobbies;  
+    @FXML private TextField tfProfileLength;
+    @FXML private Button btnProfileCancel;
     
     /**
      * Initializes the controller class.
@@ -44,18 +49,65 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
         changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);
     }
     
-    @FXML 
-    public void loadProfile(){
-        Profile myProfile = dc.GetMyProfile();
-        if (myProfile.getGender() == Gender.MALE)
+    @FXML
+    private void onSaveProfile(ActionEvent event) throws IOException{
+        int length = Integer.parseInt(tfProfileLength.getText());
+        //TODO: fix the combobox content and parse to the enum
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyesColor = ColorEyes.BLAUW;
+        String hobbies = taProfileHobbies.getText();
+        String Description = taProfileDescription.getText();
+        
+        if (dc.SetMyProfile(length, hairColor, eyesColor, hobbies, Description))
         {
+            //check if preferences are set, if not this is the first login and redirect user to preferences screen.
+            if (dc.GetMyPreference() == null)
+            {
+                DatingSiteUIPreferencesScreenController c = (DatingSiteUIPreferencesScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIPreferencesScreen.fxml", event); 
+                c.disableCancel();
+            }
+            else
+            {
+                changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event); 
+            }
+        }
+                
+    }
+    
+    public void setInitialGender(Gender gender){
+        //initial setup, user shouldn't be able to cancel this step.
+        btnProfileCancel.setDisable(true);
+        
+        if (gender == Gender.MALE){
             rbProfileMale.setSelected(true);
             rbProfileFemale.setSelected(false);
         }
         else
         {
-            rbProfileFemale.setSelected(true);
-            rbProfileMale.setSelected(false);
-        }        
+            rbProfileMale.setSelected(true);
+            rbProfileFemale.setSelected(false);
+        }
+    }
+    
+    public void setInitalBirthDate(LocalDate date)
+    {
+        dpProfileBirthDate.setValue(date);
+    }
+    
+    public void loadProfile(){
+        Profile myProfile = dc.GetMyProfile();
+        if (myProfile != null)
+        {
+            if (myProfile.getGender() == Gender.MALE)
+            {
+                rbProfileMale.setSelected(true);
+                rbProfileFemale.setSelected(false);
+            }
+            else
+            {
+                rbProfileFemale.setSelected(true);
+                rbProfileMale.setSelected(false);
+            }  
+        }              
     }
 }

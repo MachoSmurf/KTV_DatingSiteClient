@@ -7,6 +7,7 @@ package DatingSiteClientUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,9 +53,9 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
             if(loginResult == true)
             {
                 //showWarning("Login complete", "Login succesfull");
-                try{
+                try{                    
                     DatingSiteUISearchScreenController c = (DatingSiteUISearchScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event); 
-                    c.zoekMatchesClick(null);
+                    c.zoekMatchesClick(null);                    
                 }
                 catch(IOException ioe){
                     System.out.println(ioe);
