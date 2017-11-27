@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import webservice.ColorEyes;
 import webservice.ColorHair;
 import webservice.Gender;
+import webservice.Preference;
 
 /**
  * FXML Controller class
@@ -55,10 +56,16 @@ public class DatingSiteUIPreferencesScreenController extends DatingSiteUIControl
         ColorHair hairColor = ColorHair.BLOND;
         ColorEyes eyesColor = ColorEyes.BLAUW;
         
+        Gender genderPreference = Gender.MALE;
+        if (rbPreferencesGenderFemale.isSelected())
+        {
+            genderPreference = Gender.FEMALE;
+        }
+        
         if ((minAge > 0) && (maxAge > 0) && (minLength > 0) && (maxLength > 0) && (hairColor != null) && (eyesColor != null))  
         {
             //Gender gender, int minAge, int maxAge, int minLength, int maxLength, ColorHair hairColor, ColorEyes eyeColor
-            if (dc.SetMyPreferences(Gender.MALE, minAge, maxAge, minLength, maxLength, hairColor, eyesColor))
+            if (dc.SetMyPreferences(genderPreference, minAge, maxAge, minLength, maxLength, hairColor, eyesColor))
             {
                 changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);                        
             }
@@ -71,6 +78,29 @@ public class DatingSiteUIPreferencesScreenController extends DatingSiteUIControl
     
     public void disableCancel(){
         btnPreferencesCancel.setDisable(true);
+    }
+    
+    public void loadPreferences(){
+        Preference myPreference = dc.GetMyPreference();
+        if (myPreference != null)
+        {
+            //btnProfileCancel.setDisable(false);
+            if (myPreference.getGender() == Gender.MALE)
+            {
+                rbPreferencesGenderMale.setSelected(true);
+                rbPreferencesGenderFemale.setSelected(false);
+            }
+            else
+            {
+                rbPreferencesGenderFemale.setSelected(true);
+                rbPreferencesGenderMale.setSelected(false);
+            }  
+            
+            tbPreferencesMinAge.setText(Integer.toString(myPreference.getMinAge()));
+            tbPreferencesMaxAge.setText(Integer.toString(myPreference.getMaxAge()));
+            tbPreferencesMinLength.setText(Integer.toString(myPreference.getMinLength()));
+            tbPreferencesMaxLength.setText(Integer.toString(myPreference.getMaxLength()));
+        } 
     }
     
 }

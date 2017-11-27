@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
@@ -28,7 +27,7 @@
                </font>
             </Label>
             <Label layoutX="25.0" layoutY="103.0" text="Geslacht:" />
-            <Label layoutX="25.0" layoutY="147.0" text="Geboortedatum:" />
+            <Label fx:id="lblProfileAgePrefix" layoutX="25.0" layoutY="147.0" text="Leeftijd:" />
             <Label layoutX="21.0" layoutY="193.0" text="Haarkleur:" />
             <ComboBox fx:id="cbProfileHairColor" layoutX="143.0" layoutY="188.0" prefHeight="31.0" prefWidth="150.0" promptText="Zwart" />
             <Label layoutX="25.0" layoutY="240.0" text="Kleur ogen:" />
@@ -40,11 +39,11 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="rbProfileFemale" disable="true" layoutX="221.0" layoutY="103.0" mnemonicParsing="false" text="Vrouw" toggleGroup="$tgProfileGender" />
-            <DatePicker fx:id="dpProfileBirthDate" disable="true" layoutX="143.0" layoutY="142.0" prefHeight="31.0" prefWidth="150.0" />
             <Label layoutX="21.0" layoutY="289.0" text="Lengte:" />
             <TextField fx:id="tfProfileLength" alignment="CENTER_RIGHT" layoutX="143.0" layoutY="284.0" prefHeight="31.0" prefWidth="102.0" promptText="170" />
             <Label layoutX="256.0" layoutY="289.0" text="cm" />
             <TextArea fx:id="taProfileHobbies" layoutX="325.0" layoutY="355.0" prefHeight="119.0" prefWidth="204.0" promptText="Vul hier uw hobbies in" />
+            <Label fx:id="lblProfileAge" layoutX="143.0" layoutY="147.0" text="lblProfileAge" />
          </children>
     </AnchorPane>
   </children>

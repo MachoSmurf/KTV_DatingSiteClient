@@ -65,14 +65,12 @@ public class DatingSiteUIRegisterScreenController extends DatingSiteUIController
             XMLGregorianCalendar bDate = generateDate(birthDate.toString());       
             boolean registerResult = dc.registerParticipant(name, adress, postalCode, place, bDate, registerGender, bankAccount, email, password);
             
-            if (registerResult){
-                this.showSucces("Registratie Succesvol", "De registratie is voltooid. U kunt inloggen met het email adres: " + email);
+            if (registerResult){                
                 
                 if (dc.Login(email, password))
                 {                    
                     //profile has not been filled out yet. Make sure the user does.
                     DatingSiteUIProfileScreenController c = (DatingSiteUIProfileScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIProfileScreen.fxml", event);
-                    c.setInitalBirthDate(birthDate);
                     c.setInitialGender(registerGender);                    
                 }                    
             }

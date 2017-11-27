@@ -45,7 +45,8 @@ public class DatingSiteUISearchScreenController extends DatingSiteUIController i
     
     @FXML
     private void onMyPreferences(ActionEvent event) throws IOException{
-        changeScreen("/DatingSiteClientUI/DatingSiteUIPreferencesScreen.fxml", event);
+        DatingSiteUIPreferencesScreenController c = (DatingSiteUIPreferencesScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIPreferencesScreen.fxml", event);
+        c.loadPreferences();
     }
     
     @FXML

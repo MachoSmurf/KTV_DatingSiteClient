@@ -28,13 +28,14 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
 
     @FXML private RadioButton rbProfileMale;
     @FXML private RadioButton rbProfileFemale;
-    @FXML private DatePicker dpProfileBirthDate;
     @FXML private ComboBox cbProfileHairColor;
     @FXML private ComboBox cbProfileEyesColor;
     @FXML private TextArea taProfileDescription;
     @FXML private TextArea taProfileHobbies;  
     @FXML private TextField tfProfileLength;
     @FXML private Button btnProfileCancel;
+    @FXML private Label lblProfileAgePrefix;
+    @FXML private Label lblProfileAge;
     
     /**
      * Initializes the controller class.
@@ -63,6 +64,7 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
             //check if preferences are set, if not this is the first login and redirect user to preferences screen.
             if (dc.GetMyPreference() == null)
             {
+                this.showSucces("Registratie Succesvol", "De registratie is voltooid. Voordat u verder kunt moet u eerst uw profiel invullen en voorkeuren opgeven");
                 DatingSiteUIPreferencesScreenController c = (DatingSiteUIPreferencesScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIPreferencesScreen.fxml", event); 
                 c.disableCancel();
             }
@@ -77,6 +79,9 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
     public void setInitialGender(Gender gender){
         //initial setup, user shouldn't be able to cancel this step.
         btnProfileCancel.setDisable(true);
+        //Age is loaded via profile, which we can't see yet so hide the age field.
+        lblProfileAgePrefix.setVisible(false);
+        lblProfileAge.setVisible(false);
         
         if (gender == Gender.MALE){
             rbProfileMale.setSelected(true);
@@ -87,17 +92,13 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
             rbProfileMale.setSelected(true);
             rbProfileFemale.setSelected(false);
         }
-    }
-    
-    public void setInitalBirthDate(LocalDate date)
-    {
-        dpProfileBirthDate.setValue(date);
-    }
+    }    
     
     public void loadProfile(){
         Profile myProfile = dc.GetMyProfile();
         if (myProfile != null)
         {
+            btnProfileCancel.setDisable(false);
             if (myProfile.getGender() == Gender.MALE)
             {
                 rbProfileMale.setSelected(true);
@@ -108,6 +109,11 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
                 rbProfileFemale.setSelected(true);
                 rbProfileMale.setSelected(false);
             }  
-        }              
+            
+            lblProfileAge.setText(Integer.toString(myProfile.getAge()));
+            taProfileHobbies.setText(myProfile.getHobbies());
+            taProfileDescription.setText(myProfile.getDescription());
+            tfProfileLength.setText(Integer.toString(myProfile.getLength()));
+        } 
     }
 }
