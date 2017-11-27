@@ -53,9 +53,11 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
             {
                 //showWarning("Login complete", "Login succesfull");
                 try{
-                    changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);                    
+                    DatingSiteUISearchScreenController c = (DatingSiteUISearchScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event); 
+                    c.zoekMatchesClick(null);
                 }
                 catch(IOException ioe){
+                    System.out.println(ioe);
                     showWarning("Fout", "Het scherm kon niet worden geladen.");
                 }
             }

@@ -19,6 +19,7 @@
             <ImageView fitHeight="122.0" fitWidth="147.0" layoutX="383.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnSearchMyProfile" layoutX="37.0" layoutY="411.0" mnemonicParsing="false" onAction="#onMyProfile" prefHeight="31.0" prefWidth="134.0" text="Mijn Profiel" />
             <Button fx:id="btnSearchMyPreference" layoutX="37.0" layoutY="455.0" mnemonicParsing="false" onAction="#onMyPreferences" prefHeight="31.0" prefWidth="134.0" text="Mijn Voorkeuren" />
+            <Button layoutX="584.0" layoutY="416.0" mnemonicParsing="false" onAction="#zoekMatchesClick" prefHeight="170.0" prefWidth="202.0" text="Zoek Matches" />
          </children>
     </AnchorPane>
   </children>

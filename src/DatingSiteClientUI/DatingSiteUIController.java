@@ -35,7 +35,7 @@ public abstract class DatingSiteUIController {
         this.dc = dc;
     }
     
-    protected void changeScreen(String fxmlPath, ActionEvent event) throws IOException{
+    protected DatingSiteUIController changeScreen(String fxmlPath, ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));     
                 
         Parent root = (Parent)fxmlLoader.load();   
@@ -49,6 +49,7 @@ public abstract class DatingSiteUIController {
         app_stage.hide();
         app_stage.setScene(homepage_scene);
         app_stage.show();
+        return controller;
     }
         
     protected XMLGregorianCalendar generateDate(String dateString){
