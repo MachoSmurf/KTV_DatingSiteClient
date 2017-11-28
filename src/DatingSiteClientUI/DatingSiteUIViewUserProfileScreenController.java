@@ -53,6 +53,7 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
         lblViewProfileHair.setText(userProfile.getColorHair().toString());
         lblViewProfileEyes.setText(userProfile.getColorEyes().toString());
         lblViewProfileGender.setText(userProfile.getGender().toString());
+        lblViewProfileAge.setText(Integer.toString(userProfile.getAge()));
     }
     
     public void onSendMessage(ActionEvent event) throws IOException

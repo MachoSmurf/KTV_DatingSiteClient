@@ -52,15 +52,15 @@ public class DatingController {
     
     public boolean Login(String email, String password){
         try{
-        sessionKey = hm.login(email, password);
-        if (sessionKey.length() != 10)
-        {
-            System.out.println("Invalid session key");
-            return false;
+            sessionKey = hm.login(email, password);
+            if (sessionKey.length() != 10)
+            {
+                System.out.println("Invalid session key");
+                return false;
+            }
+            System.out.println(sessionKey);
         }
-        System.out.println(sessionKey);
-        }
-        catch(DatingSiteWebServiceException_Exception e){
+        catch(Exception e){
             System.out.println(e);
             return false;
         } 
