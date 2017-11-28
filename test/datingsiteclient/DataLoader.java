@@ -41,8 +41,8 @@ public class DataLoader {
         if (!dataSetInit)
         {
             //load datingsite 30+ dataset
-            //DataSet30 d30 = new DataSet30(ds30);
-            //d30.registerUsers();
+            DataSet30 d30 = new DataSet30(ds30);
+            d30.registerUsers();
 
             //load datingsite 50+ dataset
             DataSet50 d50 = new DataSet50(ds50);

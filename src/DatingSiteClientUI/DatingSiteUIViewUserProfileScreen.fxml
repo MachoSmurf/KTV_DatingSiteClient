@@ -2,27 +2,29 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatingSiteClientUI.DatingSiteUIViewUserProfileScreenController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button layoutX="535.0" layoutY="349.0" mnemonicParsing="false" text="Stuur bericht" />
+            <Button layoutX="520.0" layoutY="349.0" mnemonicParsing="false" text="Stuur bericht" />
             <Button layoutX="23.0" layoutY="349.0" mnemonicParsing="false" text="Sluiten" />
-            <ListView layoutX="322.0" layoutY="248.0" prefHeight="96.0" prefWidth="297.0" />
             <Label layoutX="324.0" layoutY="216.0" text="Hobbies:" />
-            <Label layoutX="323.0" layoutY="183.0" text="Gebruiker, leeftijd" />
+            <Label fx:id="lblViewProfileAge" layoutX="323.0" layoutY="183.0" text="lblViewProfileAge" />
             <ImageView fitHeight="163.0" fitWidth="199.0" layoutX="420.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <TextArea layoutX="23.0" layoutY="140.0" prefHeight="201.0" prefWidth="277.0" />
+            <TextArea fx:id="taViewProfileDescriptions" layoutX="23.0" layoutY="140.0" prefHeight="201.0" prefWidth="277.0" />
             <Label layoutX="23.0" layoutY="32.0" text="Haarkleur:" />
             <Label layoutX="23.0" layoutY="58.0" text="Kleur ogen:" />
             <Label layoutX="23.0" layoutY="81.0" text="Geslacht:" />
             <Label layoutX="23.0" layoutY="111.0" text="Gebruiker overzichzelf:" />
+            <Label fx:id="lblViewProfileHair" layoutX="113.0" layoutY="32.0" text="Label" />
+            <Label fx:id="lblViewProfileEyes" layoutX="113.0" layoutY="58.0" text="Label" />
+            <Label fx:id="lblViewProfileGender" layoutX="113.0" layoutY="85.0" text="lblViewProfileGender" />
+            <TextArea fx:id="taViewProfileHobbies" layoutX="320.0" layoutY="241.0" prefHeight="97.0" prefWidth="308.0" />
          </children>
     </AnchorPane>
   </children>

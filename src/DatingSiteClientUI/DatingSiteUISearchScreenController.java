@@ -5,6 +5,7 @@
  */
 package DatingSiteClientUI;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -43,14 +44,23 @@ public class DatingSiteUISearchScreenController extends DatingSiteUIController i
         }
         else
         {
+            lvMatchesResult.setItems(null);
             ObservableList l = FXCollections.observableArrayList();
             for (Profile p : matches){
                 l.add(p);
             }
             lvMatchesResult.setItems(l);
-            lvMatchesResult.refresh();
+            //lvMatchesResult.refresh();
             System.out.println(matches.size() + " matches gevonden.");
         }
+    }
+    
+    @FXML
+    private void onListViewClicked() throws IOException{
+        Profile p = (Profile)lvMatchesResult.getSelectionModel().getSelectedItem();
+        //this.showSucces("test", "Item clicked: " + p.getProfileId());
+        DatingSiteUIViewUserProfileScreenController c = (DatingSiteUIViewUserProfileScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIViewUserProfileScreen.fxml", null);
+        c.setProfile(p);
     }
     
     @FXML

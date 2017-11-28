@@ -41,7 +41,9 @@ public class DatingSiteClient extends Application {
 
         primaryStage.setScene(scene);    
 
-        primaryStage.show();     
+        primaryStage.show();
+        
+        controller.setStage(primaryStage);
         
         }
         catch(Exception e){

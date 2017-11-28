@@ -21,7 +21,7 @@
             <Button fx:id="btnSearchMyProfile" layoutX="37.0" layoutY="411.0" mnemonicParsing="false" onAction="#onMyProfile" prefHeight="31.0" prefWidth="134.0" text="Mijn Profiel" />
             <Button fx:id="btnSearchMyPreference" layoutX="37.0" layoutY="455.0" mnemonicParsing="false" onAction="#onMyPreferences" prefHeight="31.0" prefWidth="134.0" text="Mijn Voorkeuren" />
             <Button layoutX="584.0" layoutY="416.0" mnemonicParsing="false" onAction="#zoekMatchesClick" prefHeight="170.0" prefWidth="202.0" text="Zoek Matches" />
-            <ListView fx:id="lvMatchesResult" layoutX="585.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="lvMatchesResult" layoutX="585.0" layoutY="46.0" onMouseClicked="#onListViewClicked" prefHeight="200.0" prefWidth="200.0" />
          </children>
     </AnchorPane>
   </children>

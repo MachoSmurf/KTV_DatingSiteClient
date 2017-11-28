@@ -29,19 +29,30 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 public abstract class DatingSiteUIController {
     
-    protected DatingController dc;    
+    protected DatingController dc;   
+    protected static Stage mainStage;
     
     public void setDatingController(DatingController dc){
         this.dc = dc;
     }
     
     protected DatingSiteUIController changeScreen(String fxmlPath, ActionEvent event) throws IOException{
+        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));     
                 
         Parent root = (Parent)fxmlLoader.load();   
                 
         Scene homepage_scene = new Scene(root);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage app_stage;
+        
+        if (event == null)
+        {
+            app_stage = mainStage;
+        }
+        else
+        {
+            app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        }
         
         DatingSiteUIController controller = (DatingSiteUIController)fxmlLoader.getController();
         controller.setDatingController(dc);
@@ -50,6 +61,10 @@ public abstract class DatingSiteUIController {
         app_stage.setScene(homepage_scene);
         app_stage.show();
         return controller;
+    }
+    
+    public void setStage(Stage s){
+        mainStage = s;
     }
         
     protected XMLGregorianCalendar generateDate(String dateString){
