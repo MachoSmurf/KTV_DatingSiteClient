@@ -5,12 +5,15 @@
  */
 package datingsiteclient;
 
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import webservice.DatingSiteWebServiceException_Exception;
+import webservice.Profile;
 
 /**
  *
@@ -59,5 +62,16 @@ public class DataLoader {
     @Test
     public void testForInit(){
         System.out.println("Test to init db");
+    }
+    
+    @Test
+    public void testMatchCount() throws DatingSiteWebServiceException_Exception{
+        String key = ds30.login("test10@30plusdatingtest.nl", "Dating310");
+        List<Profile> matches = ds30.requestMatchingProfiles(key);
+        if (matches.size() != 2)
+        {
+            System.out.println(matches.size());
+            fail("Incorrect number of matches");
+        }
     }
 }

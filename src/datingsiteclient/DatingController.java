@@ -133,7 +133,19 @@ public class DatingController {
     private void ReloadMatches(){
         if (sessionKey.length() == 10){
             try{
-                this.myMatches = hm.requestMatchingProfiles(sessionKey);
+                List<Profile> rawMatches = hm.requestMatchingProfiles(sessionKey);
+                //filter out double matches when using the exchange server
+                for (Profile p : rawMatches){
+                    boolean found = false;
+                    for (Profile pCheck : this.myMatches){
+                        if (pCheck.getProfileId().equals(p.getProfileId())){
+                            found = true;
+                        }                        
+                    }    
+                    if (!found){
+                        this.myMatches.add(p);
+                    }
+                }
             }
             catch(DatingSiteWebServiceException_Exception e){
                 System.out.println(e);
