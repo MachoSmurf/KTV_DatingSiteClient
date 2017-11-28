@@ -30,21 +30,26 @@ public class DatingSiteClient extends Application {
     public void start(Stage primaryStage) throws Exception{
         
         try{           
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml"));     
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DatingSiteClientUI/DatingSiteUILoginScreen.fxml"));     
 
-        Parent root = (Parent)fxmlLoader.load();          
-        DatingSiteUILoginScreenController controller = (DatingSiteUILoginScreenController)fxmlLoader.getController();
-        controller.setDatingController(datingController);
-        controller.setSiteName(datingController.GetSiteName());
-                
-        Scene scene = new Scene(root); 
+            Parent root = (Parent)fxmlLoader.load();          
+            DatingSiteUILoginScreenController controller = (DatingSiteUILoginScreenController)fxmlLoader.getController();
+            if (datingController != null)
+            {
+                controller.setDatingController(datingController);
+                controller.setSiteName(datingController.GetSiteName());            
+            }
 
-        primaryStage.setScene(scene);    
+            Scene scene = new Scene(root); 
 
-        primaryStage.show();
-        
-        controller.setStage(primaryStage);
-        
+            primaryStage.setScene(scene);    
+
+            primaryStage.show();
+
+            controller.setStage(primaryStage);
+            if (datingController == null){
+                controller.showConnectionError();            
+            }        
         }
         catch(Exception e){
             System.out.println(e);
@@ -57,7 +62,7 @@ public class DatingSiteClient extends Application {
      */
     public static void main(String[] args) throws DatingSiteWebServiceException_Exception {
         datingController = new DatingController();
-        launch(args);
+        launch(args);        
     }
     
 }

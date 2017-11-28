@@ -23,8 +23,8 @@
             <Label alignment="CENTER" layoutX="45.0" layoutY="239.0" text="Kleur ogen:" />
             <Button fx:id="btnPreferencesCancel" layoutX="38.0" layoutY="369.0" mnemonicParsing="false" onAction="#onCancel" text="Annuleren" />
             <Button fx:id="btnPreferencesSave" layoutX="530.0" layoutY="369.0" mnemonicParsing="false" onAction="#onPreferencesSave" text="Opslaan" />
-            <ComboBox fx:id="cbPreferencesColorHair" layoutX="169.0" layoutY="201.0" prefHeight="31.0" prefWidth="117.0" promptText="Zwart" />
-            <ComboBox fx:id="cbPreferencesColorEyes" layoutX="168.0" layoutY="235.0" prefHeight="31.0" prefWidth="117.0" promptText="Blauw" />
+            <ComboBox fx:id="cbPreferencesColorHair" layoutX="169.0" layoutY="201.0" prefHeight="31.0" prefWidth="117.0" />
+            <ComboBox fx:id="cbPreferencesColorEyes" layoutX="168.0" layoutY="235.0" prefHeight="31.0" prefWidth="117.0" />
             <RadioButton fx:id="rbPreferencesGenderMale" layoutX="45.0" layoutY="277.0" mnemonicParsing="false" text="Man">
                <toggleGroup>
                   <ToggleGroup fx:id="tgPreferencesGender" />

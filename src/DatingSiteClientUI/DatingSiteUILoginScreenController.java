@@ -73,5 +73,9 @@ public class DatingSiteUILoginScreenController extends DatingSiteUIController im
     private void onRegisterClick(ActionEvent event) throws IOException {
         changeScreen("/DatingSiteClientUI/DatingSiteUIRegisterScreen.fxml", event);
     }    
+
+    public void showConnectionError() {
+        this.showWarning("Verbindingsfout", "Kon niet verbinden met de datingsite. Probeer het over enkele ogenblikken opnieuw!");
+    }
     
 }

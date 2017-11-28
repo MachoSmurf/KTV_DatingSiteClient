@@ -8,6 +8,7 @@ package DatingSiteClientUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,6 +41,8 @@ public class DatingSiteUIPreferencesScreenController extends DatingSiteUIControl
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cbPreferencesColorHair.setItems(FXCollections.observableArrayList(ColorHair.values()));
+        cbPreferencesColorEyes.setItems(FXCollections.observableArrayList(ColorEyes.values()));
     } 
     
     @FXML
@@ -53,8 +56,8 @@ public class DatingSiteUIPreferencesScreenController extends DatingSiteUIControl
         int maxAge = Integer.parseInt(tbPreferencesMaxAge.getText());
         int minLength = Integer.parseInt(tbPreferencesMinLength.getText());
         int maxLength = Integer.parseInt(tbPreferencesMaxLength.getText());
-        ColorHair hairColor = ColorHair.BLOND;
-        ColorEyes eyesColor = ColorEyes.BLAUW;
+        ColorHair hairColor = (ColorHair)cbPreferencesColorHair.getSelectionModel().getSelectedItem();
+        ColorEyes eyesColor = (ColorEyes)cbPreferencesColorEyes.getSelectionModel().getSelectedItem();
         
         Gender genderPreference = Gender.MALE;
         if (rbPreferencesGenderFemale.isSelected())
@@ -100,6 +103,8 @@ public class DatingSiteUIPreferencesScreenController extends DatingSiteUIControl
             tbPreferencesMaxAge.setText(Integer.toString(myPreference.getMaxAge()));
             tbPreferencesMinLength.setText(Integer.toString(myPreference.getMinLength()));
             tbPreferencesMaxLength.setText(Integer.toString(myPreference.getMaxLength()));
+            cbPreferencesColorHair.setValue(myPreference.getColorHair());
+            cbPreferencesColorEyes.setValue(myPreference.getColorEyes());
         } 
     }
     

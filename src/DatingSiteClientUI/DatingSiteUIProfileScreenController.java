@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,6 +44,8 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cbProfileHairColor.setItems(FXCollections.observableArrayList(ColorHair.values()));
+        cbProfileEyesColor.setItems(FXCollections.observableArrayList(ColorEyes.values()));
     }    
     
     @FXML
@@ -114,6 +117,8 @@ public class DatingSiteUIProfileScreenController extends DatingSiteUIController 
             taProfileHobbies.setText(myProfile.getHobbies());
             taProfileDescription.setText(myProfile.getDescription());
             tfProfileLength.setText(Integer.toString(myProfile.getLength()));
+            cbProfileHairColor.setValue(myProfile.getColorHair());
+            cbProfileEyesColor.setValue(myProfile.getColorEyes());
         } 
     }
 }
