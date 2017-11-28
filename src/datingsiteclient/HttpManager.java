@@ -14,7 +14,7 @@ import webservice.Profile;
  *
  * @author MS-Laptop
  */
-public class HttpManager {
+public class HttpManager implements IDatingSite {
 
     public String getDatingSiteName() throws DatingSiteWebServiceException_Exception {
         webservice.DatingSiteForClientService service = new webservice.DatingSiteForClientService();

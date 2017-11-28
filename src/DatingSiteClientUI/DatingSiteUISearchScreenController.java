@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import webservice.Gender;
+import javafx.scene.control.*;
 import webservice.Profile;
 
 /**
@@ -22,6 +24,8 @@ import webservice.Profile;
  */
 public class DatingSiteUISearchScreenController extends DatingSiteUIController implements Initializable {
 
+    @FXML private ListView lvMatchesResult;
+    
     /**
      * Initializes the controller class.
      */
@@ -39,6 +43,12 @@ public class DatingSiteUISearchScreenController extends DatingSiteUIController i
         }
         else
         {
+            ObservableList l = FXCollections.observableArrayList();
+            for (Profile p : matches){
+                l.add(p);
+            }
+            lvMatchesResult.setItems(l);
+            lvMatchesResult.refresh();
             System.out.println(matches.size() + " matches gevonden.");
         }
     }
