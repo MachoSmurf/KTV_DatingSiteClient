@@ -5,8 +5,10 @@
  */
 package DatingSiteClientUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -33,6 +35,8 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
     private Label lblViewProfileEyes;
     @FXML
     private Label lblViewProfileGender;
+    
+    private Profile userProfile;
 
     /**
      * Initializes the controller class.
@@ -43,6 +47,7 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
     }    
     
     public void setProfile(Profile userProfile){
+        this.userProfile = userProfile;
         taViewProfileHobbies.setText(userProfile.getHobbies());
         taViewProfileDescriptions.setText(userProfile.getDescription());
         lblViewProfileHair.setText(userProfile.getColorHair().toString());
@@ -50,4 +55,13 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
         lblViewProfileGender.setText(userProfile.getGender().toString());
     }
     
+    public void onSendMessage(ActionEvent event) throws IOException
+    {
+        DatingSiteUIGesprekScreenController c = (DatingSiteUIGesprekScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", event);        
+    }
+    
+    public void onCancel(ActionEvent event) throws IOException
+    {
+        changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", null);   
+    }    
 }

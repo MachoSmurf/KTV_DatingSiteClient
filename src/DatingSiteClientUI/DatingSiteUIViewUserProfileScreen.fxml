@@ -11,12 +11,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button layoutX="520.0" layoutY="349.0" mnemonicParsing="false" text="Stuur bericht" />
-            <Button layoutX="23.0" layoutY="349.0" mnemonicParsing="false" text="Sluiten" />
+            <Button layoutX="520.0" layoutY="349.0" mnemonicParsing="false" onAction="#onSendMessage" text="Stuur bericht" />
+            <Button layoutX="23.0" layoutY="349.0" mnemonicParsing="false" onAction="#onCancel" text="Sluiten" />
             <Label layoutX="324.0" layoutY="216.0" text="Hobbies:" />
             <Label fx:id="lblViewProfileAge" layoutX="323.0" layoutY="183.0" text="lblViewProfileAge" />
             <ImageView fitHeight="163.0" fitWidth="199.0" layoutX="420.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <TextArea fx:id="taViewProfileDescriptions" layoutX="23.0" layoutY="140.0" prefHeight="201.0" prefWidth="277.0" />
+            <TextArea fx:id="taViewProfileDescriptions" disable="true" layoutX="23.0" layoutY="140.0" prefHeight="201.0" prefWidth="277.0" />
             <Label layoutX="23.0" layoutY="32.0" text="Haarkleur:" />
             <Label layoutX="23.0" layoutY="58.0" text="Kleur ogen:" />
             <Label layoutX="23.0" layoutY="81.0" text="Geslacht:" />
@@ -24,7 +24,7 @@
             <Label fx:id="lblViewProfileHair" layoutX="113.0" layoutY="32.0" text="Label" />
             <Label fx:id="lblViewProfileEyes" layoutX="113.0" layoutY="58.0" text="Label" />
             <Label fx:id="lblViewProfileGender" layoutX="113.0" layoutY="85.0" text="lblViewProfileGender" />
-            <TextArea fx:id="taViewProfileHobbies" layoutX="320.0" layoutY="241.0" prefHeight="97.0" prefWidth="308.0" />
+            <TextArea fx:id="taViewProfileHobbies" disable="true" layoutX="320.0" layoutY="241.0" prefHeight="97.0" prefWidth="308.0" />
          </children>
     </AnchorPane>
   </children>
