@@ -72,7 +72,7 @@ public class DatingSiteUILoginScreenControllerTest {
         DatingSiteUILoginScreenController instance = new DatingSiteUILoginScreenController();
         
         instance.setSiteName(siteName);
-        String expResult = "Testsite30Plus";
+        String expResult = "TestSite30Plus";
         String result = lblLoginDatingSiteName.getText();
         
         assertEquals("TestSite30Plus", expResult, result);
