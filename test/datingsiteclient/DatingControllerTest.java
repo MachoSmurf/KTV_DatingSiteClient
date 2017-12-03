@@ -48,9 +48,10 @@ public class DatingControllerTest {
 
     /**
      * Test of Login method, of class DatingController.
+    
      */
     @Test
-    public void testLogin1() throws DatingSiteWebServiceException_Exception {
+    public void testLoginTrue() throws DatingSiteWebServiceException_Exception {
         System.out.println("testLogin");
         // voldoet aan eisen/wensen
         DatingController testController = new DatingController();
@@ -66,7 +67,7 @@ public class DatingControllerTest {
     }
     
     @Test
-    public void testLogin2() throws DatingSiteWebServiceException_Exception {
+    public void testLoginPwShort() throws DatingSiteWebServiceException_Exception {
         System.out.println("testLogin");
         // voldoet niet aan de eisen/wensen wachtwoord te lang
         DatingController testController = new DatingController();
@@ -82,7 +83,7 @@ public class DatingControllerTest {
     }
     
         @Test
-    public void testLogin3() throws DatingSiteWebServiceException_Exception {
+    public void testLoginPwLong() throws DatingSiteWebServiceException_Exception {
         System.out.println("testLogin");
         // voldoet niet aan de eisen/wensen wachtwoord te kort
         DatingController testController = new DatingController();
@@ -103,6 +104,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileTrue() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -126,6 +128,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileFalse() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -146,6 +149,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileLength() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -166,10 +170,11 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileHairColor() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
-        // BEGIN TEST, hairCOlor voldoet niet aan de eisen/wensen 
+        // BEGIN TEST, hairColor voldoet niet aan de eisen/wensen 
         // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
         int length = 200;
         ColorHair hairColor = null;
@@ -186,6 +191,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileEyeColor() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -206,6 +212,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileHobbies() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -226,6 +233,7 @@ public class DatingControllerTest {
     @Test
     public void testSetMyProfileDescription() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
         
@@ -248,24 +256,211 @@ public class DatingControllerTest {
      * Test of SetMyPreferences method, of class DatingController.
      */
     @Test
-    public void testSetMyPreferences() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");
+    public void testSetMyPreferencesTrue() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
        
+        // BEGIN TEST, test voldoet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 45;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = true;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+       /**
+     * Test of SetMyPreferences method, of class DatingController.
+     */
+    @Test
+    public void testSetMyPreferencesFalse() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, test voldoet totaal niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
         Gender gender = null;
-        int minAge = 0;
-        int maxAge = 0;
-        int minLength = 0;
-        int maxLength = 0;
+        int minAge = 17;
+        int maxAge = 131;
+        int minLength = 99;
+        int maxLength = 251;
         ColorHair hairColor = null;
         ColorEyes eyeColor = null;
-        DatingController instance = new DatingController();
+        
         boolean expResult = false;
-        boolean result = instance.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
+    
+     /**
+     * Test of SetMyPreferences method, of class DatingController.
+     */
+    @Test
+    public void testSetMyPreferencesGender() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, gender voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = null;
+        int minAge = 45;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+         /**
+     * Test of SetMyPreferences method, of class DatingController.
+     */
+    @Test
+    public void testSetMyPreferencesMinAge() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, minAge voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 17;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyPreferencesMaxAge() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, maxAge voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 45;
+        int maxAge = 131;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyPreferencesMinLength() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, minLength voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 17;
+        int maxAge = 60;
+        int minLength = 99;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyPreferencesMaxLength() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, mazLength voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 17;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 251;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyPreferencesHairColor() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, hairColor voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 17;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = null;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyPreferencesEyeColor() throws DatingSiteWebServiceException_Exception{
+        System.out.println("testSetMyPreferences");        
+        // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+       
+        // BEGIN TEST, minAge voldoet niet aan eisen/wensen
+        // (gender != null) && (minAge>18)  && (maxAge<130) && (hairColor != null) && (eyeColor != null) && (minLength>100)  && (maxLength<250)
+        Gender gender = Gender.FEMALE;
+        int minAge = 17;
+        int maxAge = 60;
+        int minLength = 160;
+        int maxLength = 175;
+        ColorHair hairColor = ColorHair.BLOND;
+        ColorEyes eyeColor = null;
+        
+        boolean expResult = false;
+        boolean result = testController.SetMyPreferences(gender, minAge, maxAge, minLength, maxLength, hairColor, eyeColor);
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of registerParticipant method, of class DatingController.
