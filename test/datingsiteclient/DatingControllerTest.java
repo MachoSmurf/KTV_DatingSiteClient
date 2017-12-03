@@ -25,9 +25,7 @@ import webservice.Profile;
  * @author Adaline
  */
 public class DatingControllerTest {
-    
- 
-    
+        
     public DatingControllerTest() {
     }
     
@@ -40,7 +38,8 @@ public class DatingControllerTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws DatingSiteWebServiceException_Exception {
+       
     }
     
     @After
@@ -99,136 +98,159 @@ public class DatingControllerTest {
     }
 
     /**
-     * Test of Logout method, of class DatingController.
-     */
-    @Test
-    public void testLogout() throws DatingSiteWebServiceException_Exception{
-        System.out.println("Logout");
-        DatingController instance = new DatingController();
-        boolean expResult = false;
-        boolean result = instance.Logout();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetSiteName method, of class DatingController.
-     */
-    @Test
-    public void testGetSiteName() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetSiteName");
-        DatingController instance = new DatingController();
-        String expResult = "";
-        String result = instance.GetSiteName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetMyInfo method, of class DatingController.
-     */
-    @Test
-    public void testGetMyInfo() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetMyInfo");
-        DatingController instance = new DatingController();
-        instance.GetMyInfo();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetMyProfile method, of class DatingController.
-     */
-    @Test
-    public void testGetMyProfile() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetMyProfile");
-        DatingController instance = new DatingController();
-        instance.GetMyProfile();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetMyPreference method, of class DatingController.
-     */
-    @Test
-    public void testGetMyPreference() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetMyPreference");
-        DatingController instance = new DatingController();
-        instance.GetMyPreference();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetMatches method, of class DatingController.
-     */
-    @Test
-    public void testGetMatches() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetMatches");
-        DatingController instance = new DatingController();
-        List<Profile> expResult = null;
-        List<Profile> result = instance.GetMatches();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetSendMessages method, of class DatingController.
-     */
-    @Test
-    public void testGetSendMessages() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetSendMessages");
-        DatingController instance = new DatingController();
-        List<Message> expResult = null;
-        List<Message> result = instance.GetSendMessages();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of GetReceivedMessages method, of class DatingController.
-     */
-    @Test
-    public void testGetReceivedMessages() throws DatingSiteWebServiceException_Exception{
-        System.out.println("GetReceivedMessages");
-        DatingController instance = new DatingController();
-        List<Message> expResult = null;
-        List<Message> result = instance.GetReceivedMessages();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of SetMyProfile method, of class DatingController.
      */
     @Test
-    public void testSetMyProfile() throws DatingSiteWebServiceException_Exception{
+    public void testSetMyProfileTrue() throws DatingSiteWebServiceException_Exception{
         System.out.println("SetMyProfile");
-        int length = 0;
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, test voldoet aan eisen/wensen
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 200;
+        ColorHair hairColor = ColorHair.GRIJS;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        String hobbies = "Golf";
+        String description = "Graag buiten";
+        
+     
+        boolean expResult = true;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of SetMyProfile method, of class DatingController.
+     */
+    @Test
+    public void testSetMyProfileFalse() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, test voldoet totaal niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 90;
         ColorHair hairColor = null;
         ColorEyes eyeColor = null;
         String hobbies = "";
         String description = "";
-        DatingController instance = new DatingController();
+        
+     
         boolean expResult = false;
-        boolean result = instance.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void testSetMyProfileLength() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, length voldoet niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 90;
+        ColorHair hairColor = ColorHair.GRIJS;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        String hobbies = "Golf";
+        String description = "Graag buiten";
+        
+     
+        boolean expResult = false;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyProfileHairColor() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, hairCOlor voldoet niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 200;
+        ColorHair hairColor = null;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        String hobbies = "Golf";
+        String description = "Graag buiten";
+        
+     
+        boolean expResult = false;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyProfileEyeColor() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, eyeColor voldoet niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 200;
+        ColorHair hairColor = ColorHair.GRIJS;
+        ColorEyes eyeColor = null;
+        String hobbies = "Golf";
+        String description = "Graag buiten";
+        
+     
+        boolean expResult = false;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyProfileHobbies() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, hobbies voldoet niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 200;
+        ColorHair hairColor = ColorHair.GRIJS;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        String hobbies = "";
+        String description = "Graag buiten";
+        
+     
+        boolean expResult = false;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetMyProfileDescription() throws DatingSiteWebServiceException_Exception{
+        System.out.println("SetMyProfile");
+        DatingController testController = new DatingController();
+        testController.Login("test10@30plusdatingtest.nl", "Dating310");
+        
+        // BEGIN TEST, description voldoet niet aan de eisen/wensen 
+        // (length>100)  && (length<250) && (hairColor != null) && (eyeColor != null) && (!hobbies.isEmpty()) && (!description.isEmpty()
+        int length = 200;
+        ColorHair hairColor = ColorHair.GRIJS;
+        ColorEyes eyeColor = ColorEyes.BRUIN;
+        String hobbies = "Golf";
+        String description = "";
+        
+     
+        boolean expResult = false;
+        boolean result = testController.SetMyProfile(length, hairColor, eyeColor, hobbies, description);
+        assertEquals(expResult, result);
+    }
+
 
     /**
      * Test of SetMyPreferences method, of class DatingController.
      */
     @Test
     public void testSetMyPreferences() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyPreferences");
+        System.out.println("testSetMyPreferences");
+       
         Gender gender = null;
         int minAge = 0;
         int maxAge = 0;
@@ -244,19 +266,6 @@ public class DatingControllerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of SendMessage method, of class DatingController.
-     */
-    @Test
-    public void testSendMessage() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SendMessage");
-        DatingController instance = new DatingController();
-        boolean expResult = false;
-        boolean result = instance.SendMessage();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of registerParticipant method, of class DatingController.
