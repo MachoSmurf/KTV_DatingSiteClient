@@ -5,7 +5,13 @@
  */
 package datingsiteclient;
 
+import java.text.ParseException;
+
+import java.util.GregorianCalendar;
 import java.util.List;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -466,23 +472,33 @@ public class DatingControllerTest {
      * Test of registerParticipant method, of class DatingController.
      */
     @Test
-    public void testRegisterParticipant() throws DatingSiteWebServiceException_Exception{
-        System.out.println("registerParticipant");
-        String name = "";
-        String address = "";
-        String postalCode = "";
-        String place = "";
-        XMLGregorianCalendar birthDate = null;
-        Gender gender = null;
-        String bankAccount = "";
-        String email = "";
-        String password = "";
-        DatingController instance = new DatingController();
-        boolean expResult = false;
-        boolean result = instance.registerParticipant(name, address, postalCode, place, birthDate, gender, bankAccount, email, password);
+    public void testRegisterParticipant() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipant");
+        
+        GregorianCalendar gregory = new GregorianCalendar(1969, 0, 9);
+
+        // BEGIN TEST, 
+        String name = "Test41";
+        String address = "Teststraat 41";
+        String postalCode = "1234AK";
+        String place = "Testcity";
+        XMLGregorianCalendar birthDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
+        birthDate.setTimezone(DatatypeConstants.FIELD_UNDEFINED);
+        birthDate.setTime(DatatypeConstants.FIELD_UNDEFINED,
+                DatatypeConstants.FIELD_UNDEFINED,
+                DatatypeConstants.FIELD_UNDEFINED, 
+                DatatypeConstants.FIELD_UNDEFINED);
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123450";
+        String email = "Test41@30plusdatingtest.nl";
+        String password = "Dating341";
+
+        DatingController testController = new DatingController();
+        boolean expResult = true;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, birthDate, gender, bankAccount, email, password);
+
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
     
 }
