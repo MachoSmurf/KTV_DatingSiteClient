@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import webservice.Gender;
 import webservice.Profile;
 
 /**
@@ -58,7 +59,8 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
     
     public void onSendMessage(ActionEvent event) throws IOException
     {
-        DatingSiteUIGesprekScreenController c = (DatingSiteUIGesprekScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", event);        
+        DatingSiteUIGesprekScreenController c = (DatingSiteUIGesprekScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", event);    
+        c.setInfo(userProfile.getAge(), userProfile.getGender());
     }
     
     public void onCancel(ActionEvent event) throws IOException

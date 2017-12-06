@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import webservice.Gender;
 
 /**
  * FXML Controller class
@@ -36,6 +37,10 @@ public class DatingSiteUIGesprekScreenController extends DatingSiteUIController 
     private void onCancel(ActionEvent event) throws IOException{
         DatingSiteUISearchScreenController c = (DatingSiteUISearchScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUISearchScreen.fxml", event);
         c.zoekMatchesClick(null); 
+    }
+    
+    public void setInfo(int age, Gender gender){
+        lblConversationsAge.setText(gender.toString() + ", " + Integer.toString(age));
     }
     
 }
