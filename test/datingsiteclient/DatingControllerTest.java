@@ -18,6 +18,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -61,7 +62,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testLoginTrue() throws DatingSiteWebServiceException_Exception {
-        System.out.println("testLogin");
+        System.out.println("testLoginTrue");
         // voldoet aan eisen/wensen
         DatingController testController = new DatingController();
         String email = "test10@30plusdatingtest.nl";
@@ -76,8 +77,8 @@ public class DatingControllerTest {
     }
     
     @Test
-    public void testLoginPwShort() throws DatingSiteWebServiceException_Exception {
-        System.out.println("testLogin");
+    public void testLoginPwLong() throws DatingSiteWebServiceException_Exception {
+        System.out.println("testLoginPwLong");
         // voldoet niet aan de eisen/wensen wachtwoord te lang
         DatingController testController = new DatingController();
         String email = "test10@30plusdatingtest.nl";
@@ -91,9 +92,9 @@ public class DatingControllerTest {
  
     }
     
-        @Test
-    public void testLoginPwLong() throws DatingSiteWebServiceException_Exception {
-        System.out.println("testLogin");
+    @Test
+    public void testLoginPwShort() throws DatingSiteWebServiceException_Exception {
+        System.out.println("testLoginPwShort");
         // voldoet niet aan de eisen/wensen wachtwoord te kort
         DatingController testController = new DatingController();
         String email = "test10@30plusdatingtest.nl";
@@ -112,7 +113,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyProfileTrue() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileTrue");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -136,7 +137,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyProfileFalse() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileFalse");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -157,7 +158,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyProfileLength() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileLength");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -178,7 +179,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyProfileHairColor() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileHairColor");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -199,7 +200,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyProfileEyeColor() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileEyeColor");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -220,7 +221,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyProfileHobbies() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileHobbies");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -241,7 +242,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyProfileDescription() throws DatingSiteWebServiceException_Exception{
-        System.out.println("SetMyProfile");
+        System.out.println("testSetMyProfileDescription");
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -266,7 +267,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyPreferencesTrue() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesTrue");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -291,7 +292,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyPreferencesFalse() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesFalse");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -316,7 +317,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyPreferencesGender() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesGender");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -341,7 +342,7 @@ public class DatingControllerTest {
      */
     @Test
     public void testSetMyPreferencesMinAge() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesMinAge");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -363,7 +364,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyPreferencesMaxAge() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesMaxAge");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -385,7 +386,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyPreferencesMinLength() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesMinLength");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -407,7 +408,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyPreferencesMaxLength() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesMaxLength");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -429,7 +430,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyPreferencesHairColor() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesHairColor");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -451,7 +452,7 @@ public class DatingControllerTest {
     
     @Test
     public void testSetMyPreferencesEyeColor() throws DatingSiteWebServiceException_Exception{
-        System.out.println("testSetMyPreferences");        
+        System.out.println("testSetMyPreferencesEyeColor");        
         // voor deze test is het een vereiste dat de gebruiker is ingelogd op de datingsite
         DatingController testController = new DatingController();
         testController.Login("test10@30plusdatingtest.nl", "Dating310");
@@ -475,33 +476,224 @@ public class DatingControllerTest {
      * Test of registerParticipant method, of class DatingController.
      */
     @Test
-    public void testRegisterParticipant() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
-        System.out.println("testRegisterParticipant");
+    public void testRegisterParticipantTrue() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantTrue");
         
-        GregorianCalendar gregory = new GregorianCalendar(1969, 0, 9);
-
-        // BEGIN TEST, 
-        String name = "Test41";
-        String address = "Teststraat 41";
+        // BEGIN TEST, test voldoet aan wensen/ eisen 
+        String name = "Test42";
+        String address = "Teststraat 45";
         String postalCode = "1234AK";
         String place = "Testcity";
-        /*XMLGregorianCalendar birthDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
-        birthDate.setTimezone(DatatypeConstants.FIELD_UNDEFINED);
-        birthDate.setTime(DatatypeConstants.FIELD_UNDEFINED,
-                DatatypeConstants.FIELD_UNDEFINED,
-                DatatypeConstants.FIELD_UNDEFINED, 
-                DatatypeConstants.FIELD_UNDEFINED);*/
         Gender gender = Gender.MALE;
-        String bankAccount = "0123450";
-        String email = "Test41@30plusdatingtest.nl";
-        String password = "Dating341";
+        String bankAccount = "0123451";
+        String email = "Test42@30plusdatingtest.nl";
+        String password = "Dating342";
 
         DatingController testController = new DatingController();
         boolean expResult = true;
-        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1949/09/01"), gender, bankAccount, email, password);
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/01/09"), gender, bankAccount, email, password);
 
         assertEquals(expResult, result);
+    }
+  
+    /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+    @Test
+    public void testRegisterParticipantName() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantName");
+        
+        // BEGIN TEST, name voldoet aan wensen/ eisen 
+        String name = " ";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = "Testcity";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343";
 
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+    @Test
+    public void testRegisterParticipantAdress() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantAdress");
+        
+        // BEGIN TEST, adress voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = " ";
+        String postalCode = "1234AK";
+        String place = "Testcity";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+    @Test
+    public void testRegisterParticipantPostalCode() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipant");
+        
+        // BEGIN TEST, postalCode voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = " ";
+        String place = "Testcity";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+    @Test
+    public void testRegisterParticipantPlace() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantPlace");
+        
+        // BEGIN TEST, place voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = " ";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+       @Test
+    public void testRegisterParticipantBa() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantBa");
+        
+        // BEGIN TEST, bankAccount voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = "Testcity ";
+        Gender gender = Gender.MALE;
+        String bankAccount = " ";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+       @Test
+    public void testRegisterParticipantEmail() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantEmail");
+        
+        // BEGIN TEST, email voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = "Testcity ";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = " ";
+        String password = "Dating343";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+       @Test
+    public void testRegisterParticipantPassword() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantPassword");
+        
+        // BEGIN TEST, password voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = "Testcity ";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "123 ";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1969/02/09"), gender, bankAccount, email, password);
+        
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of registerParticipant method, of class DatingController.
+     */
+    
+       @Test
+    public void testRegisterParticipantBirthdate() throws DatingSiteWebServiceException_Exception, ParseException, DatatypeConfigurationException{
+        System.out.println("testRegisterParticipantBirthdate");
+        
+        // BEGIN TEST, password voldoet aan wensen/ eisen 
+        String name = "Test43";
+        String address = "Teststraat 43";
+        String postalCode = "1234AK";
+        String place = "Testcity ";
+        Gender gender = Gender.MALE;
+        String bankAccount = "0123451";
+        String email = "Test43@30plusdatingtest.nl";
+        String password = "Dating343 ";
+
+        DatingController testController = new DatingController();
+        boolean expResult = false;
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1900/01/01"), gender, bankAccount, email, password);
+        
+        assertEquals(expResult, result);
     }
     
     private XMLGregorianCalendar generateDate(String dateString){
