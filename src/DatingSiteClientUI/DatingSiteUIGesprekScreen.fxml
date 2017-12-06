@@ -12,16 +12,17 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="551.0" layoutY="340.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="78.0" text="Verstuur" />
-            <TextArea layoutX="201.0" layoutY="340.0" prefHeight="37.0" prefWidth="345.0" promptText="Typ hier uw bericht" />
+            <Button fx:id="btnVerstuur" layoutX="551.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#sendMessageClick" prefHeight="47.0" prefWidth="78.0" text="Verstuur" />
+            <TextArea fx:id="tbMessageContent" layoutX="201.0" layoutY="340.0" prefHeight="37.0" prefWidth="345.0" promptText="Typ hier uw bericht" />
             <Label layoutX="201.0" layoutY="9.0" text="In gesprek met:">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ListView layoutX="21.0" layoutY="14.0" prefHeight="326.0" prefWidth="167.0" />
+            <ListView fx:id="lvMessagePartners" layoutX="21.0" layoutY="14.0" onMouseClicked="#onListViewClicked" prefHeight="326.0" prefWidth="167.0" />
             <Label fx:id="lblConversationsAge" layoutX="500.0" layoutY="12.0" text="Gender, leeftijd" />
-            <Button layoutX="21.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="47.0" prefWidth="167.0" text="Terug naar zoeken" />
+            <Button fx:id="btnReturnToSearch" layoutX="21.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="47.0" prefWidth="167.0" text="Terug naar zoeken" />
+            <TextArea fx:id="taGesprekBox" layoutX="200.0" layoutY="36.0" prefHeight="293.0" prefWidth="429.0" />
       </children>
     </AnchorPane>
   </children>

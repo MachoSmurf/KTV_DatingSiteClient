@@ -58,6 +58,10 @@ public class DatingController {
                 System.out.println("Invalid session key");
                 return false;
             }
+            else{
+                //fetch users own profile
+                myProfile = this.GetMyProfile();
+            }
             System.out.println(sessionKey);
         }
         catch(Exception e){
@@ -212,12 +216,19 @@ public class DatingController {
        return false;
     }
        
-    public boolean SendMessage(){
+    public boolean SendMessage(Profile receipient, String messageContent) throws DatingSiteWebServiceException_Exception{
+        if ((receipient != null) && (!"".equals(messageContent))){            
+            return hm.sendMessage(sessionKey, receipient, messageContent);
+        }
         return false;
     }
     
     public boolean registerParticipant(String name, String address, String postalCode, String place, XMLGregorianCalendar birthDate, Gender gender, String bankAccount, String email, String password) throws DatingSiteWebServiceException_Exception{
         return hm.registerParticipant(name, address, postalCode, place, birthDate, gender, bankAccount, email, password);
+    }
+    
+    public String GetMyProfileID(){
+        return myProfile.getProfileId();
     }
     
 }

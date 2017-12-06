@@ -59,8 +59,16 @@ public class DatingSiteUIViewUserProfileScreenController extends DatingSiteUICon
     
     public void onSendMessage(ActionEvent event) throws IOException
     {
-        DatingSiteUIGesprekScreenController c = (DatingSiteUIGesprekScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", event);    
-        c.setInfo(userProfile.getAge(), userProfile.getGender());
+        try{
+            DatingSiteUIGesprekScreenController c = (DatingSiteUIGesprekScreenController)changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", null);
+            //changeScreen("/DatingSiteClientUI/DatingSiteUIGesprekScreen.fxml", event);
+            c.setInfo(userProfile.getAge(), userProfile.getGender());
+            c.setCurrentMessagePartner(userProfile);
+        }
+        catch (Exception e){
+            System.out.print(e);
+        }
+        
     }
     
     public void onCancel(ActionEvent event) throws IOException
