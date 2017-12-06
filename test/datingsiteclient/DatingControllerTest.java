@@ -5,7 +5,10 @@
  */
 package datingsiteclient;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -482,12 +485,12 @@ public class DatingControllerTest {
         String address = "Teststraat 41";
         String postalCode = "1234AK";
         String place = "Testcity";
-        XMLGregorianCalendar birthDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
+        /*XMLGregorianCalendar birthDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
         birthDate.setTimezone(DatatypeConstants.FIELD_UNDEFINED);
         birthDate.setTime(DatatypeConstants.FIELD_UNDEFINED,
                 DatatypeConstants.FIELD_UNDEFINED,
                 DatatypeConstants.FIELD_UNDEFINED, 
-                DatatypeConstants.FIELD_UNDEFINED);
+                DatatypeConstants.FIELD_UNDEFINED);*/
         Gender gender = Gender.MALE;
         String bankAccount = "0123450";
         String email = "Test41@30plusdatingtest.nl";
@@ -495,10 +498,26 @@ public class DatingControllerTest {
 
         DatingController testController = new DatingController();
         boolean expResult = true;
-        boolean result = testController.registerParticipant(name, address, postalCode, place, birthDate, gender, bankAccount, email, password);
+        boolean result = testController.registerParticipant(name, address, postalCode, place, generateDate("1949/09/01"), gender, bankAccount, email, password);
 
         assertEquals(expResult, result);
 
+    }
+    
+    private XMLGregorianCalendar generateDate(String dateString){
+        try{
+            DateFormat format = new SimpleDateFormat("Y/M/d");
+            Date d = format.parse(dateString);
+            GregorianCalendar gregory = new GregorianCalendar();
+            gregory.setTime(d);
+            XMLGregorianCalendar calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregory);
+            return calendar;
+        }
+        catch(ParseException | DatatypeConfigurationException e)
+        {
+            System.out.println("Failed to generate date when populating testDataset: " + e.getMessage());
+        }
+        return null;
     }
     
 }
